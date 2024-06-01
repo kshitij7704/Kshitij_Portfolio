@@ -228,10 +228,15 @@ nav .navlinks li a:hover {
 
 .project-item p {
     color: #666;
+    padding-bottom: 10px;
 }
 
 .project-item:hover {
     transform: scale(1.05);
+}
+
+.project-item a {
+    color: #007ced;
 }
 
 /* Resume Section */
@@ -385,6 +390,10 @@ nav .navlinks.open {
         right: 0;
         display: inline;
     }
+
+    .project-item {
+        width: 48.5%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -397,13 +406,11 @@ nav .navlinks.open {
         padding: 40px 0px;
     }
 
-    .portfolio-items,
-    .blog-items {
+    .project-items {
         flex-direction: column;
     }
 
-    .portfolio-item,
-    .blog-item {
+    .project-item {
         width: 100%;
     }
 }
