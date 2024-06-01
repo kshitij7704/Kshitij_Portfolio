@@ -38,7 +38,7 @@ togglebtn.addEventListener("click", () => {
 });
 
 var typed = new Typed(".input", {
-    strings: ["Frontend Developer", "UI Designer", "Data Analyst", "Programming Enthusiast"],
+    strings: ["Frontend Developer", "UI Designer", "Data Analyst", "Machine Learning Enthusiast"],
     typeSpeed: 70,
     backSpeed: 55,
     loop: true
