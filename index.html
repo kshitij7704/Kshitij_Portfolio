@@ -1,69 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Portfolio</title>
+    <link rel="shortcut icon" href="k_logo.png">
+    <title>Kshitij Kashyap - Portfolio Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            width: 4px;
+            height: 4px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 6px;
+            height: 6px;
+            top: 60%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            width: 3px;
+            height: 3px;
+            top: 40%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            width: 5px;
+            height: 5px;
+            top: 80%;
+            left: 80%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(5) {
+            width: 4px;
+            height: 4px;
+            top: 30%;
+            left: 90%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(6) {
+            width: 7px;
+            height: 7px;
+            top: 70%;
+            left: 5%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
             text-align: center;
+            padding: 2rem;
         }
-        .container {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        /* Logo/Avatar */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
         }
-        h1 {
-            font-size: 2rem;
+
+        .avatar::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8, #3b82f6);
+            border-radius: 50%;
+            z-index: -1;
+            animation: rotate 3s linear infinite;
         }
-        p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 15px;
-            font-size: 1rem;
+
+        .avatar i {
+            font-size: 3rem;
             color: white;
-            background: #ff7f50;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
         }
-        .btn:hover {
-            background: #ff5722;
-        }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem;
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
             }
-            p {
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Typography */
+        .welcome-text {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            letter-spacing: 0.5px;
+        }
+
+        .name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8, #3b82f6);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.4s both, gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 1s both;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button i {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Shimmer Effect */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .avatar i {
+                font-size: 2.5rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 1.5rem;
                 font-size: 1rem;
             }
-            .btn {
-                font-size: 0.9rem;
-                padding: 8px 16px;
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .social-links {
+                gap: 0.75rem;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
 </head>
+
 <body>
+    <!-- Animated Background Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
-        <h1>Welcome to My Personal Page</h1>
-        <p>Click the button below to visit my portfolio and explore my work.</p>
-        <a href="https://kshitij-kashyap-portfolio.netlify.app/" class="btn">Visit My Portfolio</a>
+        <!-- Avatar/Logo -->
+        <div class="avatar">
+            <i class="fas fa-code"></i>
+        </div>
+
+        <!-- Welcome Text -->
+        <p class="welcome-text">Welcome to</p>
+
+        <!-- Name -->
+        <h1 class="name">Kshitij Kashyap</h1>
+
+        <!-- Title -->
+        <h2 class="title">Innovator in Full Stack, AI, and Emerging Tech</h2>
+
+        <!-- Description -->
+        <p class="description">
+            Passionate about creating innovative solutions with cutting-edge technologies.
+            Explore my journey through code, creativity, and continuous learning.
+        </p>
+
+        <!-- CTA Button -->
+        <a href="https://kshitij-kashyap-portfolio.netlify.app/" class="cta-button">
+            <span>Explore My Portfolio</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://github.com/kshitij7704" class="social-link" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/kshitij-kashyap-133205264/" class="social-link" target="_blank"
+                title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:kashyapkshitij7704@gmail.com" class="social-link" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
     </div>
 </body>
+
 </html>
